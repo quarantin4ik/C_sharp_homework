@@ -1,6 +1,4 @@
-﻿
-
-void Task0()
+﻿void Task0()
 {
     //Напишите программу, которая на вход принимает число и выдаёт его квадрат (число умноженное на само себя)
 
@@ -9,7 +7,6 @@ void Task0()
     int result = number * number;
     Console.WriteLine(result);
 }
-
 
 void Task1()
 {
@@ -81,7 +78,6 @@ void Task2()
 
 }
 
-
 void Task5()
 {
     //5. Напишите программу вычисления значения функции возведения числа в квадрат.
@@ -116,4 +112,31 @@ void Task7()
     }
 }
 
-Task7();
+void Task9()
+{
+    //Напишите программу, которая выводит случайное число из отрезка [10,99] и показывает наибольшую цифру числа.
+    
+    Random rnd = new Random();
+
+    int number = rnd.Next(10, 100);
+
+    Console.WriteLine($"Выпало случайное число: {number}");
+
+    int f_digit = number / 10;  //84 / 10 = 8
+    int s_digit = number % 10;  //84 % 10 = 4
+    //Console.WriteLine(f_digit);
+    //Console.WriteLine(s_digit);
+    
+    int max;
+
+    if (f_digit > s_digit) max = f_digit;
+    else max = s_digit;
+
+    Console.WriteLine($"Наибольшая цифра числа: {max}");
+    
+}
+
+
+
+
+Task9();
