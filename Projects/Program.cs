@@ -1,4 +1,11 @@
-﻿void Task0()
+﻿
+int Input(string text)
+{
+    Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+void Task0()
 {
     //Напишите программу, которая на вход принимает число и выдаёт его квадрат (число умноженное на само себя)
 
@@ -136,7 +143,77 @@ void Task9()
     
 }
 
+void Task11()
+{
+    //11. Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цифру этого числа.
 
+    Random rnd = new Random();
 
+    int number = rnd.Next(100, 1000);
 
-Task9();
+    Console.WriteLine($"Выпало случайное число: {number}");
+    int f_digit = number / 100;
+    int t_digit = number % 10;
+    //f_digit = f_digit % 10;
+    //Console.Write(f_digit);
+    //Console.Write(t_digit);
+    Console.WriteLine($"Ответ: {f_digit}{t_digit}");
+    Console.WriteLine($"Ответ: {f_digit * 10 + t_digit}");
+
+}
+
+void Task12()
+{
+//12. Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе
+//число кратным первому. Если число 2 не кратно числу 1, то программа выводит остаток от деления.
+
+    Console.Write("Введите первое число: ");
+    int number_f = Convert.ToInt32(Console.ReadLine());
+    int number_s = Input("Введите второе число: ");
+    int div = number_s % number_f;
+    if (div == 0)
+    {
+        Console.WriteLine($"Число {number_s} кратно числу {number_f}");
+    }
+    else
+    {
+        Console.WriteLine($"Число {number_s} не кратно числу {number_f}."
+                          + $" Остаток от деления равен {div}");
+    }
+}
+
+void Task14()
+{
+    //14. Напишите программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23.
+    int number = Input("Введите число: ");
+    if (number % 7 == 0 && number % 23 == 0)
+    {
+        Console.WriteLine($"Число {number} кратно 7 и 23 одновременно.");
+    }
+    else
+    {
+        Console.WriteLine($"Число {number} НЕ кратно 7 и 23 одновременно.");
+    }
+}
+
+void Task16()
+{
+    //Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
+
+    int number_f = Input("Введите число: ");
+    
+    int number_s = Input("Введите число: ");
+
+    if (number_f * number_f == number_s || number_s * number_s == number_f)
+    {
+        Console.WriteLine("Есть квадрат");
+    }
+    else
+    {
+        Console.WriteLine("Нет квадрата");
+    }
+
+}
+
+Console.Clear();
+Task16();
