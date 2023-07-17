@@ -1,4 +1,10 @@
-﻿void Task2()
+﻿int Input(string text)
+{
+    Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+void Task2()
 {
     //Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
 
@@ -36,15 +42,15 @@ void Task4()
     Console.Write("Введите третье число: ");
     int number_t = Convert.ToInt32(Console.ReadLine());
     int max = number_f;
-    if(number_s > max)
+    if (number_s > max)
     {
         max = number_s;
-    } 
-    if(number_t > max)
+    }
+    if (number_t > max)
     {
         max = number_t;
     }
-  
+
     Console.Write("max = ");
     Console.WriteLine(max);
 }
@@ -55,7 +61,7 @@ void Task6()
     //(делится ли оно на два без остатка).
     Console.Write("Введите число: ");
     int num = Convert.ToInt32(Console.ReadLine());
-    if(num % 2 == 0)
+    if (num % 2 == 0)
     {
         Console.Write(num + " чётное ");
     }
@@ -73,11 +79,86 @@ void Task8()
     int counter = 1;
     while (counter <= num)
     {
-        if(counter % 2 == 0)
+        if (counter % 2 == 0)
         {
             Console.Write(counter + " ");
         }
         counter++;
     }
 }
-//Task8();
+
+void Task10()
+{
+    //Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую
+    //цифру этого числа.
+
+    int number = Input("Введите трёхзначное число: ");
+    int number_f = number / 10;
+    int number_s = number_f % 10;
+    Console.WriteLine($"Вторая цифра вашего числа = {number_s}");
+}
+
+void Task13()
+{
+    //Задача 13: Напишите программу, которая с помощью деления выводит третью цифру заданного числа или
+    //сообщает, что третьей цифры нет.
+
+    int number = Input("Введите число: ");
+    if (number > 99)
+    {
+        while (number > 999)
+        {
+            number /= 10;
+        }
+        Console.WriteLine($"Третья цифра вашего числа = {number % 10}");
+    }
+    else
+    {
+        Console.WriteLine("третьей цифры нет");
+    }
+
+}
+
+void Task15()
+{
+    //Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет,
+    //является ли этот день выходным.
+
+    int num = Input("Введите номер дня: ");
+    if (num == 1)
+    {
+        Console.WriteLine("Будний день");
+    }
+    else if (num == 2)
+    {
+        Console.WriteLine("Будний день");
+    }
+    else if (num == 3)
+    {
+        Console.WriteLine("Будний день");
+    }
+    else if (num == 4)
+    {
+        Console.WriteLine("Будний день");
+    }
+    else if (num == 5)
+    {
+        Console.WriteLine("Будний день");
+    }
+    else if (num == 6)
+    {
+        Console.WriteLine("Выходной");
+    }
+    else if (num == 7)
+    {
+        Console.WriteLine("Выходной");
+    }
+    else if (num >= 8)
+    {
+        Console.WriteLine("Нет такого дня!!!");
+    }
+
+}
+
+Console.Clear();
+Task15();
