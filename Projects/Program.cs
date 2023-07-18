@@ -215,5 +215,79 @@ void Task16()
 
 }
 
+void Task17()
+{
+    //17. Напишите программу, которая принимает на вход координаты точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт
+    //номер четверти плоскости, в которой находится эта точка.
+    int x = Input("Введите X:");
+    int y = Input("Введите Y:");
+    if (x > 0 && y > 0)
+    {
+        Console.WriteLine("Точка принадлежит первой четверти");
+    }
+    else if (x < 0 && y > 0)
+    {
+        Console.WriteLine("Точка принадлежит второй четверти");
+    }
+    else if (x < 0 && y < 0)
+    {
+        Console.WriteLine("Точка принадлежит третьей четверти");
+    }
+    else if (x > 0 && y < 0)
+    {
+        Console.WriteLine("Точка принадлежит четвертой четверти");
+    }
+    else
+    {
+        Console.WriteLine("Точка лежит на оси");
+    }
+}
+
+void Task18()
+{
+    //Задача 18: Напишите программу, которая по заданному номеру четверти, показывает диапазон
+    //возможных координат точек в этой четверти (x и y).
+    int number = Input("Введите номер четверти:");
+    if (number == 1)
+    {
+        Console.WriteLine("x > 0; y > 0");
+    }
+    else if (number == 2)
+    {
+        Console.WriteLine("x < 0; y > 0");
+    }
+    else if (number == 3)
+    {
+        Console.WriteLine("x < 0; y < 0");
+    }
+    else if (number == 4)
+    {
+        Console.WriteLine("x > 0; y < 0");
+    }
+    else
+    {
+        Console.WriteLine("Такой четверти нет");
+    }
+
+}
+
+void Task21()
+{
+    //Задача 21: Напишите программу, которая принимает на вход координаты двух точек и
+    //находит расстояние между ними в 2D пространстве.
+    
+    int x1 = Input("Введите X первой точки: ");
+    int y1 = Input("Введите Y первой точки: ");
+    int x2 = Input("Введите X второй точки: ");
+    int y2 = Input("Введите Y второй точки: ");
+
+    double result = Math.Sqrt(Math.Pow((x2 - x1),2) + Math.Pow((y2 - y1),2));
+    result = Math.Round(result,2);
+    Console.WriteLine($"Расстояние между точками: {result}");
+
+
+
+}
+
 Console.Clear();
-Task16();
+Task21();
