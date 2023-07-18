@@ -160,5 +160,95 @@ void Task15()
 
 }
 
-Console.Clear();
-Task15();
+void Task19()
+{
+    //Задача 19: Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+
+    int number = Input("Введите пятизначное число: ");
+    if (number < 10000 || number > 99999)
+    {
+        Console.WriteLine("Введено не пятизначное число");
+    }
+    else
+    {
+        int num_f = number / 10000;
+        int num_s = number / 1000 % 10;
+        int num_t = number / 10 % 10;
+        int num_q = number % 10;
+        if (num_f == num_q && num_s == num_t)
+        {
+            Console.WriteLine($"{number} является палиндромом.");
+        }
+        else
+        {
+            Console.WriteLine($"{number} Не является палиндромом.");
+        }
+    }
+
+}
+
+void Task21()
+{
+    //Задача 21: Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между
+    //ними в 3D пространстве.
+    int x1 = Input("Введите X первой точки: ");
+    int y1 = Input("Введите Y первой точки: ");
+    int z1 = Input("Введите Z первой точки: ");
+    int x2 = Input("Введите X второй точки: ");
+    int y2 = Input("Введите Y второй точки: ");
+    int z2 = Input("Введите Z второй точки: ");
+
+    double result = Math.Sqrt(Math.Pow((x2 - x1),2) + Math.Pow((y2 - y1),2) + Math.Pow((z2 - z1),2));
+    result = Math.Round(result,2);
+    Console.WriteLine($"Расстояние между точками: {result}");
+}
+
+void Task23()
+{
+    //Задача 23: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+    int N = Input("Введите число: ");
+    for (int i = 1; i <= N; i++)
+    {
+        Console.WriteLine($"{i}^3 = {Math.Pow(i,3)}");
+    }
+}
+
+int task = Input("Введите номер задачи: ");
+switch (task)
+{
+    case 2:
+        Task2();
+        break;
+    case 4:
+        Task4();
+        break;
+    case 6:
+        Task6();
+        break;
+    case 8:
+        Task8();
+        break;
+    case 10:
+        Task10();
+        break;
+    case 13:
+        Task13();
+        break;
+    case 15:
+        Task15();
+        break;
+    case 19:
+        Task19();
+        break;
+    case 21:
+        Task21();
+        break;
+    case 23:
+        Task23();
+        break;
+    default:
+        Console.WriteLine("Ошибка ввода");
+        break;
+}
+//Console.Clear();
+//Task23();
