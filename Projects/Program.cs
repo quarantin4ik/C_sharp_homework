@@ -285,9 +285,37 @@ void Task21()
     result = Math.Round(result,2);
     Console.WriteLine($"Расстояние между точками: {result}");
 
+}
 
-
+void Task22()
+{
+    //Задача 22: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу квадратов чисел от 1 до N.
+    int N = Input("Введите число: ");
+    
+    // int i = 1;
+    // while(i <= N)
+    // {
+    //     Console.WriteLine($"{i}^2 = {Math.Pow(i,2)}");
+    //     //Console.WriteLine(i * i);
+    //     i++;
+    // }
+    for (int i = 1; i <= N; i++)
+    {
+        Console.WriteLine($"{i}^2 = {Math.Pow(i,2)}");
+    }
 }
 
 Console.Clear();
-Task21();
+int task = Input("Введите номер задачи: ");
+switch (task)
+{
+    case 17:
+        Task17();
+        break;
+    default:
+        Console.WriteLine("Ошибка ввода");
+        break;
+}
+// if (task == 17) Task17;
+// else if (task == 18) Task18;
+//Task22();
