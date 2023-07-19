@@ -213,6 +213,78 @@ void Task23()
     }
 }
 
+void Task25()
+{
+    //Задача 25: Используя определение степени числа, напишите цикл, который принимает на вход два
+    //натуральных числа (A и B) и возводит число A в степень B.
+
+    int A = Input("Введите число: ");
+    int B = Input("Введите степень: ");
+    int result = 1;
+    if (A <= 0 || B <= 0)
+    {
+        Console.WriteLine("Ошибка ввода!");
+    }
+    else
+    {
+        for (int i = 1; i <= B; i++)
+    {
+        result *= A;
+    }
+        Console.WriteLine($"{A}^{B} = {result}");
+    }
+}
+
+void Task27()
+{
+    //Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+    int number = Input("Введите число: ");
+    int sum = 0;
+    while (number > 0)
+    {
+        sum += number % 10;
+        number /= 10;
+    }
+    Console.WriteLine($"Сумма цифр в числе = {sum}");
+
+}
+
+void Task29()
+{
+    //Задача 29: Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный
+    //по модулю массив.
+
+    int size = 8;
+    Random rnd = new Random();
+    int[] numbers = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        numbers[i] = rnd.Next(0, 101);
+        Console.Write($"{numbers[i]} ");
+    }
+    Console.WriteLine();
+    for (int i = 0; i < size; i++)
+    {
+        int minPosition = i;
+
+        for (int j = i + 1; j < size; j++)
+        {
+            if(numbers[j] < numbers[minPosition])
+            {
+                minPosition = j;
+            } 
+        }
+
+        int temporary = numbers[i];
+        numbers[i] = numbers[minPosition];
+        numbers[minPosition] = temporary;
+        Console.Write($"{numbers[i]} ");
+    }
+    
+}   
+
+
 int task = Input("Введите номер задачи: ");
 switch (task)
 {
@@ -245,6 +317,15 @@ switch (task)
         break;
     case 23:
         Task23();
+        break;
+    case 25:
+        Task25();
+        break;
+    case 27:
+        Task27();
+        break;
+    case 29:
+        Task29();
         break;
     default:
         Console.WriteLine("Ошибка ввода");
