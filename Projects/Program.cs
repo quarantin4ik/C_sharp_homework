@@ -305,17 +305,114 @@ void Task22()
     }
 }
 
-Console.Clear();
-int task = Input("Введите номер задачи: ");
-switch (task)
+void Task24()
 {
-    case 17:
-        Task17();
-        break;
-    default:
-        Console.WriteLine("Ошибка ввода");
-        break;
+    //Задача 24: Напишите программу, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А.
+
+    int number = Input("Введите число: ");
+    int sum = 0;
+
+    for (int i = 1; i <= number; i++)
+    {
+        Console.Write($"{i} + ");
+        sum += i;
+    }
+    Console.Write("\b\b= ");
+    Console.WriteLine(sum);
 }
+
+void Task26()
+{
+    //Задача 26: Напишите программу, которая принимает на вход число и выдаёт количество цифр в числе.
+
+    int number = Input("Введите число: ");
+    int count = 0;
+
+    for (int i = number; i > 0; i /=10)
+    {
+        count ++;
+    }
+    Console.WriteLine($"Количество цифр в числе {number} = {count}");
+}
+
+void Task28()
+{
+    //Задача 28: Напишите программу, которая принимает на вход число N и выдаёт произведение чисел от 1 до N.
+
+    // int N = Input("Введите число: ");
+
+    
+    // for (int i = 1; i <= N; i++)
+    // {
+    //     Console.WriteLine($"{i}*{N} = {Math.BigMul(i,N)}");
+    // }
+    
+    int number = Input("Введите число: ");
+    int mult = 1;
+
+    for (int i = 1; i <= number; i++)
+    {
+        Console.Write($"{i} * ");
+        mult *= i;
+    }
+    Console.Write("\b\b= ");
+    Console.WriteLine(mult);
+
+}
+
+void Task30()
+{
+    //Задача 30: Напишите программу, которая выводит массив из 8 элементов, заполненный нулями и единицами в случайном порядке.
+
+    int size = 5;
+    Random rnd = new Random();
+                     //0   1  2  3   4   5 - index
+    //int[] numbers = {10, 7, 5, 13, 21, 8};
+    //Console.WriteLine(numbers[3]);
+
+    int[] numbers = new int[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        numbers[i] = rnd.Next(0, 2);
+    }
+
+    
+    for (int i = 0; i < size; i++)
+    {
+        // Console.Write($"numbers[{i}] = ");
+        // Console.WriteLine(numbers[i]);
+        Console.Write($"{numbers[i]} ");
+    }
+    Console.WriteLine();
+}
+
+void Task31()
+{
+    //Задача 31: Задайте массив из 12 элементов, заполненный случайными числами из промежутка [-9, 9]. Найдите сумму
+    //отрицательных и положительных элементов массива.
+    int size = 12;
+    int[] numbers = new int[size];
+    Random rnd = new Random();
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        numbers[i] = rnd.Next(-9, 10);
+    }
+    
+
+
+}
+Console.Clear();
+// int task = Input("Введите номер задачи: ");
+// switch (task)
+// {
+//     case 17:
+//         Task17();
+//         break;
+//     default:
+//         Console.WriteLine("Ошибка ввода");
+//         break;
+// }
 // if (task == 17) Task17;
 // else if (task == 18) Task18;
-//Task22();
+Task30();
