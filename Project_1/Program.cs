@@ -56,7 +56,7 @@ namespace Project_1
 
                 for (int i = 0; i < numbers.Length; i++)
                 {
-                    if(numbers[i] == num)
+                    if (numbers[i] == num)
                     {
                         find = true;
                     }
@@ -69,7 +69,7 @@ namespace Project_1
                 {
                     Console.WriteLine($"Число {num} отсутствует в данном массиве!");
                 }
-                               
+
 
             }
 
@@ -86,7 +86,7 @@ namespace Project_1
                 int count = 0;
                 for (int i = 0; i < numbers.Length; i++)
                 {
-                    if(numbers[i] >= 10 && numbers[i] <=99) count++;
+                    if (numbers[i] >= 10 && numbers[i] <= 99) count++;
                 }
                 Console.WriteLine($"Найдено элементов: {count}");
 
@@ -102,7 +102,7 @@ namespace Project_1
                 MyLibClass.FillArray(numbers, 0, 15);
                 MyLibClass.PrintArray(numbers);
 
-                int lastIndex = numbers.Length -1;
+                int lastIndex = numbers.Length - 1;
                 int halfIndex = numbers.Length / 2;
                 for (int i = 0; i < halfIndex; i++)
                 {
@@ -119,14 +119,109 @@ namespace Project_1
                 //Задача 39: Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом
                 //месте, а первый - на последнем и т.д.)
 
-                int size = 6;
+                int size = 7;
                 int[] numbers = new int[size];
                 MyLibClass.FillArray(numbers);
                 MyLibClass.PrintArray(numbers);
+
+                int halfIndex = numbers.Length / 2;
+                int lastIndex = numbers.Length - 1;
+                for (int i = 0; i < halfIndex; i++)
+                {
+                    // int temp = numbers[i];                   //переворот массива с помощью 3й переменной
+                    // numbers[i] = numbers[lastIndex - i];
+                    // numbers[lastIndex - i] = temp;
+
+                    (numbers[i], numbers[lastIndex - i]) = (numbers[lastIndex - i], numbers[i]); //способ переворота массива
+                    //при помощи кортежа
+                }
+                MyLibClass.PrintArray(numbers);
+            }
+
+            void Task40()
+            {
+                //Задача 40: Напишите программу, которая принимает на вход три числа и проверяет, 
+                //может ли существовать треугольник со сторонами такой длины.
+
+                int A = MyLibClass.Input("Введите сторону A: ");
+                int B = MyLibClass.Input("Введите сторону B: ");
+                int C = MyLibClass.Input("Введите сторону C: ");
+                if (A < B + C && B < A + C && C < A + B)
+                {
+                    Console.WriteLine("Такой треугольник существует");
+                }
+                else Console.WriteLine("Такого треугольника быть не может!");
+
+            }
+
+            void Task42()
+            {
+                //Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+                // int number = MyLibClass.Input("Введите число: ");
+                // int result = 0;
+                // int bias = 1;
+
+                // while (number > 0)
+                // {
+                //     result += number % 2 * bias;
+                //     number /= 2;
+                //     bias *= 10;
+                // }
+                // Console.WriteLine(result);
+
+                int number = MyLibClass.Input("Введите число: ");
+                string result = "";
+
+                while (number > 0)
+                {
+                    result = number % 2 + result;
+                    number /= 2;
+                }
+                Console.WriteLine(result);
+
+            }
+
+            void Task44()
+            {
+                //Задача 44: Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+
+                int N = MyLibClass.Input("Введите число: ");
+                int A = 0;
+                int B = 1;
+                //int sum = 0;
+                for (int i = 1; i <= N; i++)
+                {
+                    Console.WriteLine($"{i}. {A}");
+                    // Console.WriteLine(A);
+                    // sum = A + B;
+                    // B = A;
+                    // A = sum;
+                    (A, B) = (B, A + B);
+                }
+
+
+            }
+
+            void Task45()
+            {
+                //Задача 45: Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного
+                //копирования.
+
+                int size = 7;
+                int[] numbers = new int[size];
+                MyLibClass.FillArray(numbers);
+                MyLibClass.PrintArray(numbers);
+                int[] copyNumbers = new int[numbers.Length];
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    copyNumbers[i] = numbers[i];
+                }
+                MyLibClass.PrintArray(copyNumbers);
+
             }
 
             Console.Clear();
-            task37();
+            Task45();
 
 
 
