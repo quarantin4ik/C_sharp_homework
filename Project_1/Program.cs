@@ -114,6 +114,17 @@ namespace Project_1
                 }
             }
 
+            void Task39()
+            {
+                //Задача 39: Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом
+                //месте, а первый - на последнем и т.д.)
+
+                int size = 6;
+                int[] numbers = new int[size];
+                MyLibClass.FillArray(numbers);
+                MyLibClass.PrintArray(numbers);
+            }
+
             Console.Clear();
             task37();
 

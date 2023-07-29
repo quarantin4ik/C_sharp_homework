@@ -61,8 +61,6 @@ namespace Homework_1
                     if (numbers[i] > max) max = numbers[i];
                     else if (numbers[i] < min) min = numbers[i];
                 }
-                Console.WriteLine(max);
-                Console.WriteLine(min);
                 Console.WriteLine($"Разница между {max} и {min} равна {max - min}");
             }
 
