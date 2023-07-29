@@ -1,4 +1,5 @@
 ﻿
+
 int Input(string text)
 {
     Console.Write(text);
@@ -122,7 +123,7 @@ void Task7()
 void Task9()
 {
     //Напишите программу, которая выводит случайное число из отрезка [10,99] и показывает наибольшую цифру числа.
-    
+
     Random rnd = new Random();
 
     int number = rnd.Next(10, 100);
@@ -131,16 +132,16 @@ void Task9()
 
     int f_digit = number / 10;  //84 / 10 = 8
     int s_digit = number % 10;  //84 % 10 = 4
-    //Console.WriteLine(f_digit);
-    //Console.WriteLine(s_digit);
-    
+                                //Console.WriteLine(f_digit);
+                                //Console.WriteLine(s_digit);
+
     int max;
 
     if (f_digit > s_digit) max = f_digit;
     else max = s_digit;
 
     Console.WriteLine($"Наибольшая цифра числа: {max}");
-    
+
 }
 
 void Task11()
@@ -164,8 +165,8 @@ void Task11()
 
 void Task12()
 {
-//12. Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе
-//число кратным первому. Если число 2 не кратно числу 1, то программа выводит остаток от деления.
+    //12. Напишите программу, которая будет принимать на вход два числа и выводить, является ли второе
+    //число кратным первому. Если число 2 не кратно числу 1, то программа выводит остаток от деления.
 
     Console.Write("Введите первое число: ");
     int number_f = Convert.ToInt32(Console.ReadLine());
@@ -201,7 +202,7 @@ void Task16()
     //Напишите программу, которая принимает на вход два числа и проверяет, является ли одно число квадратом другого.
 
     int number_f = Input("Введите число: ");
-    
+
     int number_s = Input("Введите число: ");
 
     if (number_f * number_f == number_s || number_s * number_s == number_f)
@@ -275,14 +276,14 @@ void Task21()
 {
     //Задача 21: Напишите программу, которая принимает на вход координаты двух точек и
     //находит расстояние между ними в 2D пространстве.
-    
+
     int x1 = Input("Введите X первой точки: ");
     int y1 = Input("Введите Y первой точки: ");
     int x2 = Input("Введите X второй точки: ");
     int y2 = Input("Введите Y второй точки: ");
 
-    double result = Math.Sqrt(Math.Pow((x2 - x1),2) + Math.Pow((y2 - y1),2));
-    result = Math.Round(result,2);
+    double result = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+    result = Math.Round(result, 2);
     Console.WriteLine($"Расстояние между точками: {result}");
 
 }
@@ -291,7 +292,7 @@ void Task22()
 {
     //Задача 22: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу квадратов чисел от 1 до N.
     int N = Input("Введите число: ");
-    
+
     // int i = 1;
     // while(i <= N)
     // {
@@ -301,7 +302,7 @@ void Task22()
     // }
     for (int i = 1; i <= N; i++)
     {
-        Console.WriteLine($"{i}^2 = {Math.Pow(i,2)}");
+        Console.WriteLine($"{i}^2 = {Math.Pow(i, 2)}");
     }
 }
 
@@ -328,9 +329,9 @@ void Task26()
     int number = Input("Введите число: ");
     int count = 0;
 
-    for (int i = number; i > 0; i /=10)
+    for (int i = number; i > 0; i /= 10)
     {
-        count ++;
+        count++;
     }
     Console.WriteLine($"Количество цифр в числе {number} = {count}");
 }
@@ -341,12 +342,12 @@ void Task28()
 
     // int N = Input("Введите число: ");
 
-    
+
     // for (int i = 1; i <= N; i++)
     // {
     //     Console.WriteLine($"{i}*{N} = {Math.BigMul(i,N)}");
     // }
-    
+
     int number = Input("Введите число: ");
     int mult = 1;
 
@@ -366,7 +367,7 @@ void Task30()
 
     int size = 5;
     Random rnd = new Random();
-                     //0   1  2  3   4   5 - index
+    //0   1  2  3   4   5 - index
     //int[] numbers = {10, 7, 5, 13, 21, 8};
     //Console.WriteLine(numbers[3]);
 
@@ -377,7 +378,7 @@ void Task30()
         numbers[i] = rnd.Next(0, 2);
     }
 
-    
+
     for (int i = 0; i < size; i++)
     {
         // Console.Write($"numbers[{i}] = ");
@@ -398,7 +399,7 @@ void Task31()
     {
         numbers[i] = rnd.Next(-9, 10);
     }
-    
+
 
 
 }
