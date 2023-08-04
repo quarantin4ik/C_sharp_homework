@@ -220,8 +220,136 @@ namespace Project_1
 
             }
 
+            void Task46()
+            {
+                //Задача 46: Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
+
+                //int size = 8;
+                int rows = 4;
+                int columns = 5;
+                //int[] numbers = new int[size];
+                //string[] words = new string[size];
+                int[,] matrix = new int[rows,columns];
+                Random random = new Random();
+                                                   //0 = строка
+                                                   //1 = столбец
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        //Console.WriteLine($"matrix[{i}, {j}]");
+                        matrix[i, j] = random.Next(-10, 10);
+                    }
+                    //Console.WriteLine($"Вывод строки с инуксом {i} окончен\n");
+                }
+
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        Console.Write($"{matrix[i,j]}\t");
+                    }
+                    Console.WriteLine();
+                }
+            }
+
+            void Task48()
+            {
+                //Задача 48: Задайте двумерный массив размера m на n, каждый элемент в массиве находится по формуле: A = m+n.
+                //Выведите полученный массив на экран.
+                int m = 3;
+                int n = 4;
+                int[,] matrix = new int[m,n];
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        matrix[i, j] = i + j;
+                    }
+                }
+                MyLibClass.PrintArray(matrix);
+
+            }
+
+            void Task49()
+            {
+                //Задача 49: Задайте двумерный массив. Найдите элементы, у которых оба индекса чётные,
+                // и замените эти элементы на их квадраты.
+                int rows = MyLibClass.Input("Введите количество строк: ");
+                int columns = MyLibClass.Input("Введите количество столбцов: ");
+                int[,] matrix = new int[rows,columns];
+                MyLibClass.FillArray(matrix);
+                MyLibClass.PrintArray(matrix);
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        if (i % 2 == 0 && j % 2 == 0)
+                        {
+                            matrix[i, j] *= matrix[i, j];
+                        }
+                    }
+                    
+                }
+                Console.WriteLine();
+                MyLibClass.PrintArray(matrix);
+                
+            }
+
+            void Task51()
+            {
+                //Задача 51: Задайте двумерный массив. Найдите сумму элементов, 
+                //находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.
+
+                // int rows = MyLibClass.Input("Введите количество строк: ");
+                // int columns = MyLibClass.Input("Введите количество столбцов: ");
+                // int sum = 0;
+                // int[,] matrix = new int[rows,columns];
+                // MyLibClass.FillArray(matrix);
+                // MyLibClass.PrintArray(matrix);
+                // for (int i = 0; i < matrix.GetLength(0); i++)
+                // {
+                //     for (int j = 0; j < matrix.GetLength(1); j++)
+                //     {
+                //         if (i == j)
+                //         {
+                //             sum += matrix[i, j];
+                //         }
+                //     }
+                    
+                // }
+                // Console.WriteLine();
+                // Console.WriteLine($"Сумма элементов главной диагонали = {sum}");
+                //MyLibClass.PrintArray(matrix);
+
+                int rows = MyLibClass.Input("Введите количество строк: ");
+                int columns = MyLibClass.Input("Введите количество столбцов: ");
+                
+                int[,] matrix = new int[rows,columns];
+                MyLibClass.FillArray(matrix, 0, 6);
+                MyLibClass.PrintArray(matrix);
+                int sum = 0;
+                                            //да    //нет
+                int minSize = rows < columns? rows: columns;    
+                // if (matrix.GetLength(0) < matrix.GetLength(1))
+                // {
+                //     minSize = matrix.GetLength(0);
+                // }
+                // else minSize = matrix.GetLength(1);
+
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                                
+                    sum += matrix[i, i];
+                                       
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Сумма элементов главной диагонали = {sum}");
+
+            }
+
             Console.Clear();
-            Task45();
+            Task51();
 
 
 
