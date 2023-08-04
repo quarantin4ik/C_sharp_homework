@@ -134,7 +134,7 @@ namespace Homework_1
                 {
                     Console.WriteLine("Вы вышли за пределы таблицы.");
                 }
-                else 
+                else
                 {
                     Console.WriteLine(matrix[a - 1, b - 1]);
                 }
@@ -158,19 +158,18 @@ namespace Homework_1
                 //столбце.
                 int rows = MyLibClass.Input("Введите количество строк: ");
                 int columns = MyLibClass.Input("Введите количество столбцов: ");
-                
-                int[,] matrix = new int[rows,columns];
+
+                int[,] matrix = new int[rows, columns];
                 MyLibClass.FillArray(matrix, 0, 9);
                 MyLibClass.PrintArray(matrix);
-                int sum = 0;
+                double sum = 0;
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     for (int i = 0; i < matrix.GetLength(0); i++)
                     {
                         sum = matrix[i, j] + sum;
-                        Console.WriteLine(sum);
                     }
-                    Console.WriteLine($"Ср.ар {j} столбца = {sum = sum / rows}");
+                    Console.WriteLine($"Ср.ар {j + 1} столбца = {sum = sum / rows}");
                     sum = 0;
                 }
                 Console.WriteLine();
