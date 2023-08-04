@@ -64,8 +64,49 @@ namespace Homework_1
                 Console.WriteLine($"Разница между {max} и {min} равна {max - min}");
             }
 
+            void Task41()
+            {
+                //Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+                int size = MyLibClass.Input("Введите количество чисел: ");
+                int[] numbers = new int[size];
+                MyLibClass.FillArray(numbers);
+                MyLibClass.PrintArray(numbers);
+                int count = 0;
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    if(numbers[i] > 0) count++;
+                }
+                Console.WriteLine($"Количество положительных чисел: {count}");
+            }
+
+            void Task43()
+            {
+                //Задача 43. Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями
+                // y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+                int b1 = MyLibClass.Input("Введите значение b1: ");
+                int k1 = MyLibClass.Input("Введите значение k1: ");
+                int b2 = MyLibClass.Input("Введите значение b2: ");
+                int k2 = MyLibClass.Input("Введите значение k2: ");
+                double x = (b2 - b1) / (k1 - k2);
+                double y1 = k1 * x + b1;
+                double y2 = k2 * x + b2;
+                double y = 0;
+                if (y1 == y2)
+                {
+                    y = y1;
+                    Console.WriteLine($"Точка пересечения: ({y},{x})");
+                }
+                else
+                {
+                    Console.WriteLine("Прямые параллельны");
+                }
+                
+
+            }
+
             Console.Clear();
-            Task38();
+            Task43();
 
         }
     }
