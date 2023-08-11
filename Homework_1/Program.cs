@@ -239,11 +239,42 @@ namespace Homework_1
 
                 }
                 Console.WriteLine($"Минимальная сумма = {sum} (строка {index + 1}).");
-                
+
+            }
+
+            void Task58()
+            {
+                int rows = 4;
+                int columns = 4;
+                int[,] matrix = new int[rows, columns];
+
+                int i = 0;
+                int j = 0;
+                int delta_i = 0;
+                int delta_j = 1;
+                int steps = columns;
+                int turns = 0;
+
+                for (int k = 0; k < matrix.Length; k++)
+                {
+                    matrix[i, j] = k + 1;
+                    steps--;
+                    if (steps == 0)
+                    {
+                        steps = rows - 1 - turns / 2;
+                        turns++;
+                        int temp = -delta_i;
+                        delta_i = delta_j;
+                        delta_j = temp;
+                    }
+                    i += delta_i;
+                    j += delta_j;
+                }
+                MyLibClass.PrintArray(matrix);
             }
 
             Console.Clear();
-            Task56();
+            Task58();
 
         }
     }
