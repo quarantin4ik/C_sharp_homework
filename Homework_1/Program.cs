@@ -238,7 +238,7 @@ namespace Homework_1
                     }
 
                 }
-                Console.WriteLine($"Минимальная сумма = {sum}, в строке {index + 1}.");
+                Console.WriteLine($"Минимальная сумма = {sum} (строка {index + 1}).");
                 
             }
 
