@@ -229,10 +229,10 @@ namespace Project_1
                 int columns = 5;
                 //int[] numbers = new int[size];
                 //string[] words = new string[size];
-                int[,] matrix = new int[rows,columns];
+                int[,] matrix = new int[rows, columns];
                 Random random = new Random();
-                                                   //0 = строка
-                                                   //1 = столбец
+                //0 = строка
+                //1 = столбец
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
                     for (int j = 0; j < matrix.GetLength(1); j++)
@@ -247,7 +247,7 @@ namespace Project_1
                 {
                     for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        Console.Write($"{matrix[i,j]}\t");
+                        Console.Write($"{matrix[i, j]}\t");
                     }
                     Console.WriteLine();
                 }
@@ -259,7 +259,7 @@ namespace Project_1
                 //Выведите полученный массив на экран.
                 int m = 3;
                 int n = 4;
-                int[,] matrix = new int[m,n];
+                int[,] matrix = new int[m, n];
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
                     for (int j = 0; j < matrix.GetLength(1); j++)
@@ -277,7 +277,7 @@ namespace Project_1
                 // и замените эти элементы на их квадраты.
                 int rows = MyLibClass.Input("Введите количество строк: ");
                 int columns = MyLibClass.Input("Введите количество столбцов: ");
-                int[,] matrix = new int[rows,columns];
+                int[,] matrix = new int[rows, columns];
                 MyLibClass.FillArray(matrix);
                 MyLibClass.PrintArray(matrix);
                 for (int i = 0; i < matrix.GetLength(0); i++)
@@ -289,11 +289,11 @@ namespace Project_1
                             matrix[i, j] *= matrix[i, j];
                         }
                     }
-                    
+
                 }
                 Console.WriteLine();
                 MyLibClass.PrintArray(matrix);
-                
+
             }
 
             void Task51()
@@ -316,7 +316,7 @@ namespace Project_1
                 //             sum += matrix[i, j];
                 //         }
                 //     }
-                    
+
                 // }
                 // Console.WriteLine();
                 // Console.WriteLine($"Сумма элементов главной диагонали = {sum}");
@@ -324,13 +324,13 @@ namespace Project_1
 
                 int rows = MyLibClass.Input("Введите количество строк: ");
                 int columns = MyLibClass.Input("Введите количество столбцов: ");
-                
-                int[,] matrix = new int[rows,columns];
+
+                int[,] matrix = new int[rows, columns];
                 MyLibClass.FillArray(matrix, 0, 6);
                 MyLibClass.PrintArray(matrix);
                 int sum = 0;
-                                            //да    //нет
-                int minSize = rows < columns? rows: columns;    
+                //да    //нет
+                int minSize = rows < columns ? rows : columns;
                 // if (matrix.GetLength(0) < matrix.GetLength(1))
                 // {
                 //     minSize = matrix.GetLength(0);
@@ -339,17 +339,152 @@ namespace Project_1
 
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
-                                
+
                     sum += matrix[i, i];
-                                       
+
                 }
                 Console.WriteLine();
                 Console.WriteLine($"Сумма элементов главной диагонали = {sum}");
 
             }
 
+            void Task53()
+            {
+                //Задача 53: Задайте двумерный массив. Напишите программу, которая поменяет местами первую и последнюю
+                // строку массива.
+                int rows = 4;
+                int columns = 5;
+                int[,] matrix = new int[rows, columns];
+                MyLibClass.FillArray(matrix, 0, 9);
+                MyLibClass.PrintArray(matrix);
+
+                int indexFirstRow = 0;
+                int indexLastRow = matrix.GetLength(0) - 1;
+
+                for (int j = 0; j < columns; j++)
+                {
+                    int temp = matrix[indexFirstRow, j];
+                    matrix[indexFirstRow, j] = matrix[indexLastRow, j];
+                    matrix[indexLastRow, j] = temp;
+                }
+                Console.WriteLine();
+                MyLibClass.PrintArray(matrix);
+
+            }
+
+            void Task55()
+            {
+                // Задача 55: Задайте двумерный массив. Напишите программу, которая заменяет строки на столбцы.
+                // В случае, если это невозможно, программа должна вывести сообщение для пользователя.
+
+                int rows = 3;
+                int columns = rows;
+                int[,] matrix = new int[rows, columns];
+                MyLibClass.FillArray(matrix, 0, 9);
+                MyLibClass.PrintArray(matrix);
+
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = i; j < columns; j++)
+                    {
+                        // int temp = matrix[i, j];
+                        // matrix[i, j] = matrix[j, i];
+                        // matrix[j, i] = temp;
+                        (matrix[i, j], matrix[j, i]) = (matrix[j, i], matrix[i, j]);
+                    }
+                }
+                Console.WriteLine();
+                MyLibClass.PrintArray(matrix);
+            }
+
+            void Task57()
+            {
+                //Задача 57: Составить частотный словарь элементов двумерного массива. Частотный словарь содержит
+                //информацию о том, сколько раз встречается элемент входных данных.
+
+                int rows = 4;
+                int columns = 5;
+                int[,] matrix = new int[rows, columns];
+
+                int a = -5;
+                int b = -1;
+                MyLibClass.FillArray(matrix, a, b);
+                MyLibClass.PrintArray(matrix);
+                int size = b - a + 1;
+                int[] dict = new int[size];
+
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        dict[matrix[i, j] - a]++;
+                    }
+
+                }
+
+                Console.WriteLine();
+                for (int i = 0; i < size; i++)
+                {
+                    if (dict[i] != 0) Console.WriteLine($"Элемент {i + a} встречается {dict[i]} раз(-а).");
+                }
+            }
+
+            void Task59()
+            {
+                //Задача 59: Задайтедвумерный массив из целых чисел. Напишите программу, которая удалит строку и столбец,
+                // на пересечении которых расположен наименьший элемент массива.
+
+                int rows = 5;
+                int columns = 6;
+                int[,] matrix = new int[rows, columns];
+                MyLibClass.FillArray(matrix, -100, 100);
+                MyLibClass.PrintArray(matrix);
+
+                int rowsResult = rows - 1;
+                int columnsResult = columns - 1;
+                int[,] result = new int[rowsResult, columnsResult];
+
+                int minValue = matrix[0, 0];
+                int i_min = 0;
+                int j_min = 0;
+
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        if (matrix[i, j] < minValue)
+                        {
+                            minValue = matrix[i, j];
+                            i_min = i;
+                            j_min = j;
+                        }
+                    }
+
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Минимальное значение {minValue} находится в позиции {i_min + 1}, {j_min + 1}");
+
+                int bias_i = 0;
+                int bias_j = 0;
+                for (int i = 0; i < rowsResult; i++)
+                {
+                    if (i == i_min) bias_i++;
+                    bias_j = 0;
+                    for (int j = 0; j < columnsResult; j++)
+                    {
+                        if (j == j_min) bias_j++;
+                        result[i, j] = matrix[i + bias_i, j + bias_j];
+                    }
+
+                }
+                Console.WriteLine();
+                MyLibClass.PrintArray(result);
+
+
+            }
+
             Console.Clear();
-            Task51();
+            Task59();
 
 
 

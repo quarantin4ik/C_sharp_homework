@@ -175,8 +175,75 @@ namespace Homework_1
                 Console.WriteLine();
             }
 
+            void Task54()
+            {
+                //Задача 54: Задайте двумерный массив. Напишите программу, которая
+                //упорядочит по убыванию элементы каждой строки двумерного массива.
+
+                int rows = MyLibClass.Input("Введите количество строк: ");
+                int columns = MyLibClass.Input("Введите количество столбцов: ");
+
+                int[,] matrix = new int[rows, columns];
+                MyLibClass.FillArray(matrix, 0, 9);
+                MyLibClass.PrintArray(matrix);
+
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        for (int k = 0; k < columns - j - 1; k++)
+                        {
+                            if (matrix[i, k] < matrix[i, k + 1])
+                            {
+                                int temp = matrix[i, k + 1];
+                                matrix[i, k + 1] = matrix[i, k];
+                                matrix[i, k] = temp;
+                            }
+                        }
+                    }
+
+                }
+                Console.WriteLine();
+                MyLibClass.PrintArray(matrix);
+
+            }
+
+            void Task56()
+            {
+                //Задача 56: Задайте прямоугольный двумерный массив. Напишите
+                //программу, которая будет находить строку с наименьшей суммой элементов.
+
+                int rows = 4;
+                int columns = 8;
+
+                int[,] matrix = new int[rows, columns];
+                MyLibClass.FillArray(matrix, 0, 9);
+                MyLibClass.PrintArray(matrix);
+
+                int sum = Int32.MaxValue;
+                int index = 0;
+
+
+                for (int i = 0; i < rows; i++)
+                {
+                    int sumColumns = 0;
+                    for (int j = 0; j < columns; j++)
+                    {
+                        sumColumns += matrix[i, j];
+                    }
+                    if (sumColumns < sum)
+                    {
+                        sum = sumColumns;
+                        index = i;
+                    }
+
+                }
+                Console.WriteLine($"Минимальная сумма = {sum}, в строке {index + 1}.");
+                
+            }
+
             Console.Clear();
-            Task52();
+            Task56();
 
         }
     }
