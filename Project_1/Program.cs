@@ -483,8 +483,42 @@ namespace Project_1
 
             }
 
-            Console.Clear();
-            Task59();
+            void Task63()
+            {
+                //Задача 63: Задайте значение N. Напишите программу, которая выведет все 
+                //натуральные числа в промежутке от 1 до N. 
+
+                int number = MyLibClass.Input("Введите число: ");
+                int count = 1;
+
+                while (count <= number)
+                {
+                    Console.WriteLine(count);
+                    count++;
+                }
+            }
+
+            void Recursion63(int count, int number)
+            {
+                if (count > number) return;
+                Console.WriteLine(count);
+                count++;
+                Recursion63(count,number);
+
+            }
+
+            void Recursion65(int m, int n)
+            {
+                //Задача 65: Задайте значения M и N. Напишите программу, которая 
+                //выведет все натуральные числа в промежутке от M до N.
+                if (n < m) return;
+                Console.WriteLine(m);
+                m++;
+                Recursion65(m,n);
+            }
+
+            //Console.Clear();
+            Recursion65(-4,9);
 
 
 
