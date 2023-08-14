@@ -517,8 +517,44 @@ namespace Project_1
                 Recursion65(m,n);
             }
 
-            //Console.Clear();
-            Recursion65(-4,9);
+            int Recursion67(int number, int sum = 0)
+            {   
+                //Задача 67: Напишите программу, которая будет принимать на вход число и
+                //возвращать сумму его цифр.
+                if (number == 0)
+                {
+                    return sum;
+                }
+
+                sum += number % 10;
+                number /= 10;
+                
+                return Recursion67(number,sum);
+            }
+            // Console.Clear();
+            
+            // int number = MyLibClass.Input("Введите число: ");
+            // int sum = Recursion67(number);
+            // Console.WriteLine($"Сумма цифр числа {number} равна {sum}");
+
+
+            int Recursion69(int a, int b, int result = 1)
+            {
+                //Задача 69: Напишите программу, которая на вход принимает два числа A и B, и
+                //возводит число А в целую степень B с помощью рекурсии.
+                if (b == 0) return result;
+
+                result *= a;
+                b--;
+
+                return Recursion69(a,b,result);
+            }
+
+            Console.Clear();
+            
+            int a = MyLibClass.Input("Введите число a: ");
+            int b = MyLibClass.Input("Введите число b: ");
+            Console.WriteLine($"{a}^{b} = {Recursion69(a,b)}");
 
 
 

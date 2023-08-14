@@ -273,8 +273,20 @@ namespace Homework_1
                 MyLibClass.PrintArray(matrix);
             }
 
+            void Recursion64(int m, int n)
+            {
+                //Задача 64: Задайте значения M и N. Напишите рекурсивный метод, который
+                //выведет все натуральные числа кратные 3-ём в промежутке от M до N.
+
+                                  
+                    if (n < m) return;
+                    if (m % 3 == 0)
+                    Console.WriteLine(m);
+                    m++;
+                    Recursion64(m,n);               
+            }
             Console.Clear();
-            Task58();
+            Recursion64(2,17);
 
         }
     }
