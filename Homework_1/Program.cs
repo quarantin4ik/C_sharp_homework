@@ -273,21 +273,72 @@ namespace Homework_1
                 MyLibClass.PrintArray(matrix);
             }
 
-            void Recursion64(int m, int n)
+            void Task64()
             {
                 //Задача 64: Задайте значения M и N. Напишите рекурсивный метод, который
                 //выведет все натуральные числа кратные 3-ём в промежутке от M до N.
+                int m = MyLibClass.Input("Введите m: ");
+                int n = MyLibClass.Input("Введите n: ");
+                Recursion64(m, n);
+                void Recursion64(int m, int n)
+                {
 
-                                  
                     if (n < m) return;
                     if (m % 3 == 0)
-                    Console.WriteLine(m);
+                    {
+                        Console.WriteLine(m);
+                    }
                     m++;
-                    Recursion64(m,n);               
+                    Recursion64(m, n);
+                }
             }
-            Console.Clear();
-            Recursion64(2,17);
 
+
+            void Task66()
+            {
+                //Задача 66: Задайте значения M и N. Напишите рекурсивный метод, который
+                //найдёт сумму натуральных элементов в промежутке от M до N.
+                int Recursion66(int m, int n, int sum = 0)
+                {
+
+                    if (m > n)
+                    {
+                        return sum;
+                    }
+                    sum += m;
+                    Console.WriteLine(sum);
+                    m++;
+
+                    return Recursion66(m, n, sum);
+                }
+                int m = MyLibClass.Input("Введите m: ");
+                int n = MyLibClass.Input("Введите n: ");
+                Console.Write($"Сумма натуральных элементов в промежутке от {m} до {n} = {Recursion66(m, n)}");
+            }
+
+            void Task68()
+            {
+                //Задача 68: Напишите программу вычисления функции Аккермана с помощью
+                //рекурсии. Даны два неотрицательных числа m и n. 
+
+
+                int Recursion68(int m, int n)
+                {
+                    if (m == 0) return n + 1;
+                    else if (n == 0) return Recursion68(m - 1, 1);
+                    else return Recursion68(m - 1, Recursion68(m, n - 1));
+                }
+
+                int m = MyLibClass.Input("Введите m: ");
+                int n = MyLibClass.Input("Введите n: ");
+
+                Console.Write($"Функция Аккермана равно {Recursion68(m, n)}");
+            }
+
+
+
+            Console.Clear();
+            Task64();
         }
     }
 }
